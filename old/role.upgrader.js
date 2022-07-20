@@ -2,9 +2,9 @@ module.exports = {
     /**
     * @param {Creep} creep 
     **/
-    run: (creep) => {
+    run: creep => {
         const createRoad = () => {
-            Game.rooms.E22N8.createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
+            creep.room.createConstructionSite(creep.pos.x, creep.pos.y, STRUCTURE_ROAD);
         };
 
         const colors = {
@@ -49,8 +49,8 @@ module.exports = {
 
         // #####################
         if (cMemory.state == states.harvest) {
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: colors.harvest}});
+            if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(sources[1], {visualizePathStyle: {stroke: colors.harvest}});
             }
         }
 
